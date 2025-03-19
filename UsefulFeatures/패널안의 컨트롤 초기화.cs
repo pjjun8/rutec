@@ -6,6 +6,7 @@
         /// <param name="control"></param>
         private void ClearTextBoxes(Control control)
         {
+            DialogResult result;
             if (ClearTextBoxesFlag == true)
             {
                 result = MessageBox.Show("패널을 초기화 하시겠습니까?", "확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
