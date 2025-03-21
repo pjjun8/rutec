@@ -212,3 +212,46 @@ namespace DXApplication1
         }
     }
 }
+================================================================================
+================================================================================
+try
+{
+    string sql = @"
+        INSERT INTO PInformation 
+        (productCode, productionDate, expiryDate, productionNumber, lotNum, barCode, productionTime, labelStatus) 
+        VALUES (@code, @pDate, @eDate, @pNumber, @lotNum, @barCode, GETDATE(), @labelStatus)";
+
+    using (SqlCommand cmd = new SqlCommand(sql, conn))
+    {
+        // 일자 변환
+        string productionDateTime = CalcDay("제조일자");
+        string expiryDateTime = CalcDay("유효기간");
+
+        getBarCodeNum = $"01{gtin}10{LotNumTextEdit.Text}#11{productionDateTime}17{expiryDateTime}21{productionNumber}";
+        barCodeNum = $"01{gtin}10{LotNumTextEdit.Text}11{productionDateTime}17{expiryDateTime}21{productionNumber}";
+
+        cmd.Parameters.Add("@code", SqlDbType.NVarChar, 50).Value = codeTextEdit.Text;
+        cmd.Parameters.Add("@pDate", SqlDbType.Date).Value = ProductionDateDateEdit.Text;
+        cmd.Parameters.Add("@eDate", SqlDbType.Date).Value = ExpiryDateDateEdit.Text;
+        cmd.Parameters.Add("@pNumber", SqlDbType.Int).Value = productionNumber;
+        cmd.Parameters.Add("@lotNum", SqlDbType.NVarChar, 50).Value = LotNumTextEdit.Text;
+        cmd.Parameters.Add("@barCode", SqlDbType.NVarChar, 100).Value = barCodeNum;
+        cmd.Parameters.Add("@labelStatus", SqlDbType.NVarChar, 20).Value = "라벨발행";
+
+        int rowsAffected = cmd.ExecuteNonQuery();
+
+        if (rowsAffected > 0)
+        {
+            printSuccessFlag = true;
+            MessageBox.Show("커밋 완료!");
+        }
+        else
+        {
+            MessageBox.Show("커밋 실패!");
+        }
+    }
+}
+catch (Exception ex)
+{
+    MessageBox.Show($"DB 저장 중 오류 발생: {ex.Message}");
+}
