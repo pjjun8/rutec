@@ -8,5 +8,5 @@
             gridView1.BestFitColumns(); // 내용에 맞게 열 크기 자동 조정
         }
 
-//DevExpress의 GridView에서 New Item Row를 활성화하면 사용자가 직접 추가할 수 있는 빈 줄을 표시할 수도 있어.
+//DevExpress의 GridView에서 New Item Row를 활성화하면 사용자가 직접 추가할 수 있는 빈 줄을 표시(무조건 1줄 생김)
 gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
