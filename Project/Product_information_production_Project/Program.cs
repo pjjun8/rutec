@@ -29,10 +29,10 @@ namespace Product_information_production_Project
             try
             {
                 Form1 frm = new Form1();
-                Rectangle secondaryScreenBounds = Screen.AllScreens[1].WorkingArea;
+                //Rectangle secondaryScreenBounds = Screen.AllScreens[1].WorkingArea;
 
-                frm.StartPosition = FormStartPosition.Manual;
-                frm.Location = new Point((int)(secondaryScreenBounds.Right * 0.58), (secondaryScreenBounds.Bottom/5));
+                //frm.StartPosition = FormStartPosition.Manual;
+                //frm.Location = new Point((int)(secondaryScreenBounds.Right * 0.58), (secondaryScreenBounds.Bottom/5));
 
                 Application.Run(frm);
             }

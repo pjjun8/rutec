@@ -454,7 +454,7 @@ namespace Product_information_production_Project
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             DialogResult result;
-            if (GetSelectedCheckBox() is null)
+            if (GetSelectedCheckBox().Count == 0)
             {
                 MessageBox.Show("삭제할 행을 선택하세요.");
                 return;
@@ -475,7 +475,7 @@ namespace Product_information_production_Project
         private void UpdateButton_Click(object sender, EventArgs e)
         {
 
-            if (GetSelectedCheckBox() is null)
+            if (GetSelectedCheckBox().Count == 0)
             {
                 MessageBox.Show("수정할 행을 선택하세요.");
                 return;

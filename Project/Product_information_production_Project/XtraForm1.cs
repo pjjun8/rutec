@@ -252,12 +252,12 @@ namespace Product_information_production_Project
                     if (num != 0 && printSuccessFlag == false)
                     {
                         printSuccessFlag = true;
-                        MessageBox.Show("커밋 완료!");
+                        MessageBox.Show("저장 및 발행.");
                     }//  if (cmd.ExecuteNonQuery() != 0)
                     else if(printSuccessFlag == false)
                     {
                         printSuccessFlag = true;
-                        MessageBox.Show($"커밋 실패! {num}");
+                        MessageBox.Show($"커밋 실패. {num}");
                     }// else (cmd.ExecuteNonQuery() != 0)
                 }
             }
