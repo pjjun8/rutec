@@ -16,3 +16,20 @@ gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewIte
 
 =================================================================================================
 =================================================================================================
+🚀 적용 후 동작
+✅ 그리드뷰 마지막에 빈 행이 생김
+✅ 사용자가 입력하면 행이 추가됨
+✅ 빈 행이 입력되지 않으면 자동 삭제됨 (추가적인 로직 필요 시 RowUpdated 이벤트 활용 가능)
+
+이렇게 하면 속성 설정으로만 행 추가가 가능하도록 유지하면서, 데이터도 유지할 수 있어! 😊
+// 전역 리스트 (AllowNew 가능하도록 설정)
+private BindingList<ExcelData> insertlist;
+
+private void Form1_Load(object sender, EventArgs e)
+{
+    insertlist = new BindingList<ExcelData>() { AllowNew = true }; // ✅ AllowNew 설정
+    gridControl1.DataSource = insertlist;
+    gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom; // ✅ 속성 설정
+}
+//BindingList<ExcelData>의 AllowNew = true 설정 → 행 추가 가능
+//NewItemRowPosition = Bottom → 마지막 줄에 빈 행 자동 생성
