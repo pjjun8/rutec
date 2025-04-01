@@ -30,8 +30,13 @@ private void Form1_Load(object sender, EventArgs e)
     insertlist = new BindingList<ExcelData>() { AllowNew = true }; // ✅ AllowNew 설정
     gridControl1.DataSource = insertlist;
     gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom; // ✅ 속성 설정
+    int focusedRow = advBandedGridView1.FocusedRowHandle;
+    advBandedGridView1.FocusedRowHandle = -1; // 포커스 해제
+    advBandedGridView1.FocusedRowHandle = focusedRow;   //포커스 재설정
+        
 }
 //BindingList<ExcelData>의 AllowNew = true 설정 → 행 추가 가능
 //NewItemRowPosition = Bottom → 마지막 줄에 빈 행 자동 생성
+// 그리드뷰에서 포커스 나가야 새 행 추가됨!!!!!!!!!!!!!!!!!!!!!!!!
 =================================================================================================
 =================================================================================================
