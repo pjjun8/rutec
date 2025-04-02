@@ -156,7 +156,7 @@
             }
             catch
             {
-                MessageBox.Show("정확한 입력값이 아닙니다.");
+                MessageBox.Show("빈값을 입력해 주세요");
                 //MessageBox.Show(ex.ToString());
             }
         }
