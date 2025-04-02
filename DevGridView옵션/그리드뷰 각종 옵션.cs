@@ -40,3 +40,31 @@ private void Form1_Load(object sender, EventArgs e)
 // 그리드뷰에서 포커스 나가야 새 행 추가됨!!!!!!!!!!!!!!!!!!!!!!!!
 =================================================================================================
 =================================================================================================
+        //그리드뷰 각종옵션
+        private void gridControlSetting()
+        {
+            //gridView1.OptionsView.ColumnAutoWidth = false; // 열 너비 자동 조정 해제
+            advBandedGridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Auto;  //수평 스크롤바 활성화
+            advBandedGridView1.BestFitColumns(); // 내용에 맞게 열 크기 자동 조정
+
+            // 컬럼 이동, 크기 조절, 정렬, 필터링 방지
+            advBandedGridView1.OptionsCustomization.AllowColumnMoving = false;
+            advBandedGridView1.OptionsCustomization.AllowColumnResizing = false;
+            advBandedGridView1.OptionsCustomization.AllowSort = false;
+
+            // 그룹 패널 숨기기 (AllowFixedGroups 대체)
+            advBandedGridView1.OptionsView.ShowGroupPanel = false;
+
+            // 컬럼 필터링 방지 (AllowColumnFiltering 대체)
+            advBandedGridView1.OptionsView.ShowAutoFilterRow = false;
+
+            // 사용자가 컬럼 추가/삭제 못하게 막기
+            advBandedGridView1.OptionsMenu.EnableColumnMenu = false;
+            advBandedGridView1.OptionsMenu.EnableFooterMenu = false;
+
+            // 행 수정 가능하지만 선택/삭제 방지
+            advBandedGridView1.OptionsBehavior.Editable = true;
+            //advBandedGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            //advBandedGridView1.OptionsSelection.MultiSelect = false;
+            //advBandedGridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+        }
