@@ -18,15 +18,6 @@ namespace Dentium_Project
         public SqlConnection conn;
         public SqlCommand cmd;
 
-        Form1 form1;
-        public DB()
-        {
-
-        }
-        public DB(Form1 form1)
-        {
-            this.form1 = form1;
-        }
         /// <summary>
         /// DB연결실행 함수
         /// </summary>
@@ -54,22 +45,7 @@ namespace Dentium_Project
 
             }
         }
-        static async Task Main()
-        {
-            Console.WriteLine("작업 시작...");
-
-            // 비동기 메서드 호출 (await 사용)
-            DoWorkAsync();
-
-            Console.WriteLine("작업 완료!");
-        }
-
-        static async Task DoWorkAsync()
-        {
-            Console.WriteLine("3초 동안 작업 실행 중...");
-            await Task.Delay(3000); // 3초 대기 (비동기)
-            Console.WriteLine("작업 끝!");
-        }
+        
         /// <summary>
         /// 모델명, 수량 가져오는 프로시저 실행
         /// </summary>
@@ -77,7 +53,7 @@ namespace Dentium_Project
         {
             try
             {
-                form1.insertlist.Clear();
+                //Common.insertlist.Clear();
                 foreach (string lot in list)
                 {
                     string sql = $"exec parksangwon {lot}";
@@ -85,15 +61,27 @@ namespace Dentium_Project
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         bool valueFlag = false;
+                        
                         while (reader.Read())
                         {
                             valueFlag = true;
-                            form1.insertlist.Add(new ExcelData
+                            //Common.insertlist.Add(new ExcelData
+                            //{
+                            //    ProductLot = lot,
+                            //    ModelName = reader["ITEM_TYPE_NAME"].ToString(),
+                            //    QTY = reader["PROD_QTY"].ToString(),
+                            //});
+
+                            for (int i = 0; i < Common.insertlist.Count; i++)
                             {
-                                ProductLot = lot,
-                                ModelName = reader["ITEM_TYPE_NAME"].ToString(),
-                                QTY = reader["PROD_QTY"].ToString(),
-                            });
+                                if (Common.insertlist[i].ProductLot == lot)
+                                {
+                                    Common.insertlist[i].ProductLot = lot;
+                                    Common.insertlist[i].ModelName = reader["ITEM_TYPE_NAME"].ToString();
+                                    Common.insertlist[i].QTY = reader["PROD_QTY"].ToString();
+                                }
+                            }
+
                         }
                         if (!valueFlag)
                         {
@@ -108,7 +96,7 @@ namespace Dentium_Project
                 MessageBox.Show(ex.ToString());
             }
             
-            return form1.insertlist;
+            return Common.insertlist;
         }
 
     }
