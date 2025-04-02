@@ -120,23 +120,41 @@
             {
                 //xtraReport1.RequestParameters = false;
                 XtraReport1 xtraReport1 = new XtraReport1();
-                for (int i = 0; gridView1.RowCount - 1 > i; i++)
+                for (int i = 0; advBandedGridView1.RowCount - 1 > i; i++)
                 {
 
-                    xtraReport1.Parameters["LOT"].Value = gridView1.GetRowCellValue(i, "ProductLot").ToString();
-                    xtraReport1.Parameters["QTY"].Value = gridView1.GetRowCellValue(i, "QTY").ToString();
-                    xtraReport1.Parameters["ModelName"].Value = gridView1.GetRowCellValue(i, "ModelName").ToString();
-                    xtraReport1.Parameters["Holder"].Value = gridView1.GetRowCellValue(i, "Holder").ToString();
-                    xtraReport1.Parameters["Up_JIG"].Value = gridView1.GetRowCellValue(i, "Up_JIG").ToString();
-                    xtraReport1.Parameters["Down_JIG"].Value = gridView1.GetRowCellValue(i, "Down_JIG").ToString();
-                    xtraReport1.Parameters["Memo"].Value = gridView1.GetRowCellValue(i, "Memo").ToString();
+                    xtraReport1.Parameters["LOT"].Value = advBandedGridView1.GetRowCellValue(i, "ProductLot").ToString();
+                    xtraReport1.Parameters["ModelName"].Value = advBandedGridView1.GetRowCellValue(i, "ModelName").ToString();
+                    xtraReport1.Parameters["QTY"].Value = advBandedGridView1.GetRowCellValue(i, "QTY").ToString();
+                    xtraReport1.Parameters["Holder"].Value = advBandedGridView1.GetRowCellValue(i, "Holder").ToString();
+                    xtraReport1.Parameters["Up_JIG"].Value = advBandedGridView1.GetRowCellValue(i, "UpJIG_LOT").ToString();
+                    xtraReport1.Parameters["Up_JIG2"].Value = advBandedGridView1.GetRowCellValue(i, "UpJIG_LOT2").ToString();
+                    xtraReport1.Parameters["Down_JIG"].Value = advBandedGridView1.GetRowCellValue(i, "DownJIG_LOT").ToString();
+                    xtraReport1.Parameters["Down_JIG2"].Value = advBandedGridView1.GetRowCellValue(i, "DownJIG_LOT2").ToString();
+                    xtraReport1.Parameters["Memo"].Value = advBandedGridView1.GetRowCellValue(i, "Memo").ToString();
 
-                    xtraReport1.CreateDocument();
-                    xtraReport1.Print();
+                    
+                    //1200 넘은면 2장 발행
+                    int qty = int.Parse(xtraReport1.Parameters["QTY"].Value.ToString());
+                    if (qty > 1200)
+                    {
+                        xtraReport1.Parameters["QTY"].Value = "1200";
+                        xtraReport1.CreateDocument();
+                        xtraReport1.Print();
+
+                        xtraReport1.Parameters["QTY"].Value = (qty - 1200).ToString();
+                        xtraReport1.CreateDocument();
+                        xtraReport1.Print();
+                    }
+                    else
+                    {
+                        xtraReport1.CreateDocument();
+                        xtraReport1.Print();
+                    }
                     //xtraReport1.ShowPreviewDialog();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("정확한 입력값이 아닙니다.");
                 //MessageBox.Show(ex.ToString());
@@ -146,5 +164,3 @@
         {
             PrintParametersLabel();
         }
-
-
