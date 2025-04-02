@@ -6,15 +6,73 @@
         private DataTable ConvertToDataTable(BindingList<ExcelData> list)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("ProductLot", typeof(string));
-            dt.Columns.Add("QTY", typeof(string));
-            dt.Columns.Add("ModelName", typeof(string));
-            //dt.Load(list);
+
+            // 간단한 변환 방법! 프로퍼티 정보를 가져와서 DataTable 컬럼 생성
+            PropertyInfo[] properties = typeof(ExcelData).GetProperties();
+            foreach (var prop in properties)
+            {
+                dt.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            }
+
+            // BindingList 데이터를 DataTable로 변환
             foreach (var item in list)
             {
-                dt.Rows.Add(item.ProductLot, item.QTY, item.ModelName);
-                
+                DataRow row = dt.NewRow();
+                foreach (var prop in properties)
+                {
+                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                    // 로우의 빈값 확인
+                    if (string.IsNullOrWhiteSpace(prop.GetValue(item)?.ToString()))
+                    {
+                        if(!(prop.Name == "Memo"))
+                        {
+                            Common.printFlag = false;
+                        }
+                    }
+                }
+                if (int.Parse(item.QTY) > 1200)
+                {
+                    DataRow row1 = dt.NewRow();
+                    row1.ItemArray = row.ItemArray.Clone() as object[]; // 깊은 복사
+                    row["QTY"] = "1200";
+                    row1["QTY"] = (int.Parse(row1["QTY"].ToString()) - 1200).ToString();
+                    dt.Rows.Add(row);
+                    dt.Rows.Add(row1);
+                }
+                else
+                {
+                    dt.Rows.Add(row);
+                }
             }
+
+
+
+            //dt.Columns.Add("ProductLot", typeof(string));
+            //dt.Columns.Add("QTY", typeof(string));
+            //dt.Columns.Add("ModelName", typeof(string));
+            //dt.Columns.Add("Holder", typeof(string));
+            //dt.Columns.Add("UpJIG_LOT", typeof(string));
+            //dt.Columns.Add("UpJIG_LOT2", typeof(string));
+            //dt.Columns.Add("DownJIG_LOT", typeof(string));
+            //dt.Columns.Add("DownJIG_LOT2", typeof(string));
+            //dt.Columns.Add("Memo", typeof(string));
+            //dt.Load(list);
+            //foreach (var item in list)
+            //{
+            //    if(int.Parse(item.QTY) > 1200)  //1200넘으면 2장 발행
+            //    {
+            //        for(int i = 0; i < 2; i++)
+            //        {
+            //            dt.Rows.Add(item.ProductLot, item.QTY, item.ModelName, item.Holder,
+            //                    item.UpJIG_LOT, item.UpJIG_LOT2, item.DownJIG_LOT, item.DownJIG_LOT2, item.Memo);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        dt.Rows.Add(item.ProductLot, item.QTY, item.ModelName, item.Holder,
+            //                    item.UpJIG_LOT, item.UpJIG_LOT2, item.DownJIG_LOT, item.DownJIG_LOT2, item.Memo);
+            //    }
+            //}
             return dt;
         }
         /// <summary>
@@ -26,10 +84,18 @@
 
             // DataSource 변환
             //BindingList<ExcelData> bindingList = (BindingList<ExcelData>)gridControl1.DataSource;
-            DataTable dt = ConvertToDataTable(insertlist);
+            DataTable dt = ConvertToDataTable(Common.insertlist);
 
             rpt.DataSource = dt;
-            rpt.Print();
+            //rpt.ShowPreviewDialog();
+            if(Common.printFlag == true)
+            {
+                rpt.Print();    // XtraReport.DataSource랑 DataTable이랑 바인딩해서 반복문 안해도 행수 만큼 출력해주는듯?
+            }
+            else
+            {
+               MessageBox.Show("빈값을 입력해 주세요");
+            }
 
             //DataTable 일떄 형식
             //XtraReport_table rpt = new XtraReport_table();
@@ -39,6 +105,8 @@
         }
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
+            //printOutput setting
+            Common.printFlag = true;
             PrintTableLabel();
         }
 ==================================================================================
