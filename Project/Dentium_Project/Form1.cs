@@ -222,6 +222,12 @@ namespace Dentium_Project
             advBandedGridView1.OptionsCustomization.AllowColumnResizing = false;
             advBandedGridView1.OptionsCustomization.AllowSort = false;
 
+            // 밴드 드래그 이동 방지
+            advBandedGridView1.OptionsCustomization.AllowBandMoving = false;
+
+            // 밴드 크기 조절 방지
+            advBandedGridView1.OptionsCustomization.AllowBandResizing = false;
+
             // 그룹 패널 숨기기 (AllowFixedGroups 대체)
             advBandedGridView1.OptionsView.ShowGroupPanel = false;
 

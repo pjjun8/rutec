@@ -34,18 +34,20 @@ namespace Dentium_Project
             this.advBandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -101,9 +103,12 @@ namespace Dentium_Project
             this.advBandedGridView1.Appearance.Row.Options.UseFont = true;
             this.advBandedGridView1.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand3,
+            this.gridBand7,
+            this.gridBand8,
+            this.gridBand9,
+            this.gridBand10,
             this.gridBand5,
-            this.gridBand1,
-            this.gridBand2});
+            this.gridBand6});
             this.advBandedGridView1.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.bandedGridColumn1,
             this.bandedGridColumn2,
@@ -120,6 +125,7 @@ namespace Dentium_Project
             this.advBandedGridView1.OptionsSelection.MultiSelect = true;
             this.advBandedGridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
             this.advBandedGridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.advBandedGridView1.OptionsView.ShowColumnHeaders = false;
             this.advBandedGridView1.OptionsView.ShowGroupPanel = false;
             this.advBandedGridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.advBandedGridView1_RowCellClick);
             this.advBandedGridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.advBandedGridView1_CellValueChanged);
@@ -127,19 +133,15 @@ namespace Dentium_Project
             // 
             // gridBand3
             // 
-            this.gridBand3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridBand3.AppearanceHeader.Options.UseFont = true;
             this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
             this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridBand3.Caption = "생산지시 정보";
+            this.gridBand3.Caption = "제품LOT";
             this.gridBand3.Columns.Add(this.bandedGridColumn1);
-            this.gridBand3.Columns.Add(this.bandedGridColumn2);
-            this.gridBand3.Columns.Add(this.bandedGridColumn3);
-            this.gridBand3.Columns.Add(this.bandedGridColumn4);
-            this.gridBand3.Columns.Add(this.bandedGridColumn7);
             this.gridBand3.Name = "gridBand3";
             this.gridBand3.VisibleIndex = 0;
-            this.gridBand3.Width = 865;
+            this.gridBand3.Width = 170;
             // 
             // bandedGridColumn1
             // 
@@ -154,7 +156,19 @@ namespace Dentium_Project
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.RowCount = 2;
             this.bandedGridColumn1.Visible = true;
-            this.bandedGridColumn1.Width = 173;
+            this.bandedGridColumn1.Width = 170;
+            // 
+            // gridBand7
+            // 
+            this.gridBand7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand7.AppearanceHeader.Options.UseFont = true;
+            this.gridBand7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand7.Caption = "모델명";
+            this.gridBand7.Columns.Add(this.bandedGridColumn2);
+            this.gridBand7.Name = "gridBand7";
+            this.gridBand7.VisibleIndex = 1;
+            this.gridBand7.Width = 170;
             // 
             // bandedGridColumn2
             // 
@@ -169,7 +183,19 @@ namespace Dentium_Project
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.RowCount = 2;
             this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.Width = 173;
+            this.bandedGridColumn2.Width = 170;
+            // 
+            // gridBand8
+            // 
+            this.gridBand8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand8.AppearanceHeader.Options.UseFont = true;
+            this.gridBand8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand8.Caption = "수량";
+            this.gridBand8.Columns.Add(this.bandedGridColumn3);
+            this.gridBand8.Name = "gridBand8";
+            this.gridBand8.VisibleIndex = 2;
+            this.gridBand8.Width = 170;
             // 
             // bandedGridColumn3
             // 
@@ -184,7 +210,19 @@ namespace Dentium_Project
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.RowCount = 2;
             this.bandedGridColumn3.Visible = true;
-            this.bandedGridColumn3.Width = 173;
+            this.bandedGridColumn3.Width = 170;
+            // 
+            // gridBand9
+            // 
+            this.gridBand9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand9.AppearanceHeader.Options.UseFont = true;
+            this.gridBand9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand9.Caption = "홀더";
+            this.gridBand9.Columns.Add(this.bandedGridColumn4);
+            this.gridBand9.Name = "gridBand9";
+            this.gridBand9.VisibleIndex = 3;
+            this.gridBand9.Width = 170;
             // 
             // bandedGridColumn4
             // 
@@ -199,7 +237,19 @@ namespace Dentium_Project
             this.bandedGridColumn4.Name = "bandedGridColumn4";
             this.bandedGridColumn4.RowCount = 2;
             this.bandedGridColumn4.Visible = true;
-            this.bandedGridColumn4.Width = 173;
+            this.bandedGridColumn4.Width = 170;
+            // 
+            // gridBand10
+            // 
+            this.gridBand10.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand10.AppearanceHeader.Options.UseFont = true;
+            this.gridBand10.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand10.Caption = "비고";
+            this.gridBand10.Columns.Add(this.bandedGridColumn7);
+            this.gridBand10.Name = "gridBand10";
+            this.gridBand10.VisibleIndex = 4;
+            this.gridBand10.Width = 170;
             // 
             // bandedGridColumn7
             // 
@@ -214,23 +264,21 @@ namespace Dentium_Project
             this.bandedGridColumn7.Name = "bandedGridColumn7";
             this.bandedGridColumn7.RowCount = 2;
             this.bandedGridColumn7.Visible = true;
-            this.bandedGridColumn7.Width = 173;
+            this.bandedGridColumn7.Width = 170;
             // 
             // gridBand5
             // 
-            this.gridBand5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridBand5.AppearanceHeader.Options.UseFont = true;
             this.gridBand5.AppearanceHeader.Options.UseTextOptions = true;
             this.gridBand5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridBand5.Caption = "JIG LOT 정보";
+            this.gridBand5.Caption = "상단JIG LOT";
             this.gridBand5.Columns.Add(this.bandedGridColumn5);
-            this.gridBand5.Columns.Add(this.bandedGridColumn6);
             this.gridBand5.Columns.Add(this.bandedGridColumn8);
-            this.gridBand5.Columns.Add(this.bandedGridColumn9);
             this.gridBand5.Name = "gridBand5";
             this.gridBand5.RowCount = 2;
-            this.gridBand5.VisibleIndex = 1;
-            this.gridBand5.Width = 340;
+            this.gridBand5.VisibleIndex = 5;
+            this.gridBand5.Width = 170;
             // 
             // bandedGridColumn5
             // 
@@ -246,20 +294,6 @@ namespace Dentium_Project
             this.bandedGridColumn5.Name = "bandedGridColumn5";
             this.bandedGridColumn5.Visible = true;
             this.bandedGridColumn5.Width = 170;
-            // 
-            // bandedGridColumn6
-            // 
-            this.bandedGridColumn6.AppearanceCell.Options.UseTextOptions = true;
-            this.bandedGridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandedGridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bandedGridColumn6.AppearanceHeader.Options.UseFont = true;
-            this.bandedGridColumn6.AppearanceHeader.Options.UseTextOptions = true;
-            this.bandedGridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandedGridColumn6.Caption = "하단JIG LOT";
-            this.bandedGridColumn6.FieldName = "DownJIG_LOT";
-            this.bandedGridColumn6.Name = "bandedGridColumn6";
-            this.bandedGridColumn6.Visible = true;
-            this.bandedGridColumn6.Width = 170;
             // 
             // bandedGridColumn8
             // 
@@ -277,6 +311,34 @@ namespace Dentium_Project
             this.bandedGridColumn8.Visible = true;
             this.bandedGridColumn8.Width = 170;
             // 
+            // gridBand6
+            // 
+            this.gridBand6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand6.AppearanceHeader.Options.UseFont = true;
+            this.gridBand6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand6.Caption = "하단JIG LOT";
+            this.gridBand6.Columns.Add(this.bandedGridColumn6);
+            this.gridBand6.Columns.Add(this.bandedGridColumn9);
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.RowCount = 2;
+            this.gridBand6.VisibleIndex = 6;
+            this.gridBand6.Width = 170;
+            // 
+            // bandedGridColumn6
+            // 
+            this.bandedGridColumn6.AppearanceCell.Options.UseTextOptions = true;
+            this.bandedGridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandedGridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandedGridColumn6.AppearanceHeader.Options.UseFont = true;
+            this.bandedGridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.bandedGridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandedGridColumn6.Caption = "하단JIG LOT";
+            this.bandedGridColumn6.FieldName = "DownJIG_LOT";
+            this.bandedGridColumn6.Name = "bandedGridColumn6";
+            this.bandedGridColumn6.Visible = true;
+            this.bandedGridColumn6.Width = 170;
+            // 
             // bandedGridColumn9
             // 
             this.bandedGridColumn9.AppearanceCell.Options.UseTextOptions = true;
@@ -291,32 +353,6 @@ namespace Dentium_Project
             this.bandedGridColumn9.RowIndex = 1;
             this.bandedGridColumn9.Visible = true;
             this.bandedGridColumn9.Width = 170;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Visible = false;
-            this.gridBand1.VisibleIndex = -1;
-            this.gridBand1.Width = 173;
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.gridBand2.AppearanceHeader.Options.UseBorderColor = true;
-            this.gridBand2.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand4});
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Visible = false;
-            this.gridBand2.VisibleIndex = -1;
-            this.gridBand2.Width = 339;
-            // 
-            // gridBand4
-            // 
-            this.gridBand4.Caption = "gridBand4";
-            this.gridBand4.Name = "gridBand4";
-            this.gridBand4.Visible = false;
-            this.gridBand4.VisibleIndex = -1;
-            this.gridBand4.Width = 156;
             // 
             // gridView1
             // 
@@ -542,10 +578,12 @@ namespace Dentium_Project
         private DevExpress.XtraEditors.SimpleButton CellDeleteButton;
         private DevExpress.XtraEditors.SimpleButton CellAllDeleteButton;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand8;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand9;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand10;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
     }
 }
 
