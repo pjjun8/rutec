@@ -1,0 +1,8 @@
+RibbonControl
+
+ShowExpandCollapseButton = true, false -> RibbonControl 확정버튼 보이기, 숨기기 설정
+ribbon.Minimized = true, false; // 페이지 확장 취소, 고정 설정
+
+AccordionControl
+Appearance -> Group -> Normal -> font변경 시 부모그룹 폰트 변경 가능
+Appearance -> item -> Normal -> font변경 시 자식 폰트 변경 가능
